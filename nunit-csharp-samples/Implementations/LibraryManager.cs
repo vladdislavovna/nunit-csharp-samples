@@ -5,6 +5,13 @@ public class LibraryManager : ILibraryManager
 {
     private List<Book> _books;
 
+    public List<Book> Books => _books;
+
+    public LibraryManager()
+    {
+        _books = [];
+    }
+
     /// <summary>
     /// Adds a book to the library's collection.
     /// </summary>

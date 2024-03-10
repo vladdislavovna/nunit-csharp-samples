@@ -2,11 +2,16 @@ public class LibraryStatisticsAnalyzer
 {
     private readonly LibraryManager _manager;
 
+    public LibraryStatisticsAnalyzer()
+    {
+        _manager = new LibraryManager();
+    }
+
     public LibraryStatisticsAnalyzer(LibraryManager manager)
     {
         _manager = manager;
     }
-    
+
     /// <summary>
     /// Gets books by author.
     /// </summary>
@@ -14,19 +19,17 @@ public class LibraryStatisticsAnalyzer
     /// <returns>Book list.</returns>
     public List<Book> GetBooksByAuthor(string author)
     {
-        // TODO step 3.
-        return [];
+        return _manager.Books.Where(b => b.Author == author).ToList();
     }
-    
+
     /// <summary>
     /// Gets book by title.
     /// </summary>
     /// <param name="title">Book title.</param>
     /// <returns>Book.</returns>
-    public Book GetBookByTitle(string title)
+    public Book? GetBookByTitle(string title)
     {
-        // TODO step 3.
-        return new Book();
+        return _manager.Books.FirstOrDefault(b => b.Title == title);
     }
 
     /// <summary>
@@ -34,9 +37,8 @@ public class LibraryStatisticsAnalyzer
     /// </summary>
     /// <param name="articul">Book articul.</param>
     /// <returns>Book.</returns>
-    public Book GetBookByArticul(string articul)
+    public Book? GetBookByArticul(string articul)
     {
-        // TODO step 3.
-        return new Book();
+        return _manager.Books.FirstOrDefault(b => b.Articul == articul);
     }
 }
