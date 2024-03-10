@@ -11,8 +11,9 @@ public class LibraryManager : ILibraryManager
     /// <param name="book">The book to add.</param>
     public void AddBook(Book book)
     {
+        if (_books.FirstOrDefault(a => a.Articul == book.Articul) != null)
+            return;
         _books.Add(book);
-        // TODO step 2.
     }
 
     /// <summary>
